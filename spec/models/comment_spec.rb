@@ -19,4 +19,19 @@ describe Comment, type: :model do
       }.to change { post.comments_counter }.by(1)
     end
   end
+
+  describe 'private methods' do
+    describe '#update_post_comments_counter' do
+      let!(:author) { User.create!(name: 'Ruby Guy') }
+      let!(:post) { Post.create!(title: 'Test1', text: 'This is test', comments_counter: 0, likes_counter: 0, author: author) }
+      let(:comment) { Comment.new(post: post, author: author) }
+  
+      it 'updates the comments counter of the associated post' do
+        expect {
+          comment.save!
+          post.reload
+        }.to change { post.comments_counter }.by(1)
+      end
+    end
+  end
 end
