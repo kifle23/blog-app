@@ -5,4 +5,18 @@ RSpec.describe Like, type: :model do
     it { is_expected.to belong_to(:author).class_name('User') }
     it { is_expected.to belong_to(:post) }
   end
+
+  describe 'callbacks' do
+    let!(:user) { User.create(name: 'Ruby Guy', posts_count: 0) }
+
+    it 'updates the likes counter of the associated post after create' do
+      post = Post.create!(title: 'Test1', text: 'This is test', comments_counter: 0, likes_counter: 0, author: user)
+      like = Like.new(post: post, author: user)
+
+      expect {
+        like.save!
+        post.reload
+      }.to change { post.likes_counter }.by(1)
+    end
+  end
 end
