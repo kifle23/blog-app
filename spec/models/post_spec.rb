@@ -50,4 +50,18 @@ describe Post, type: :model do
           }.to change { user.reload.posts_count }.by(1)
         end
     end
+
+    describe 'private methods' do
+        describe '#update_author_posts_count' do
+          let(:user) { User.create(name: 'Ruby Guy') }
+          let(:post) { Post.create(title: 'Test', text: 'This is a test', comments_counter: 0, likes_counter: 0, author: user) }
+    
+          it 'updates the author posts count' do
+            expect {
+              post.send(:update_author_posts_count)
+              user.reload
+            }.to change { user.posts_count }.by(1)
+          end
+        end
+    end
 end
