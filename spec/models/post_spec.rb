@@ -12,4 +12,31 @@ describe Post, type: :model do
       it { is_expected.to validate_numericality_of(:comments_counter).only_integer.is_greater_than_or_equal_to(0) }
       it { is_expected.to validate_numericality_of(:likes_counter).only_integer.is_greater_than_or_equal_to(0) }
     end
+  
+    describe 'methods' do
+      let!(:user) { User.create(name: 'Ruby Guy') }
+      let!(:post) { Post.create(title: 'Test', text: 'This is a test', comments_counter: 0, likes_counter: 0, author: user) }
+  
+      it 'returns the recent comments' do
+        5.times { |i| Comment.create(post: post, author: user, text: "Comment #{i}") }
+        recent_comments = post.recent_comments(3)
+        expect(recent_comments.length).to eq(3)
+        expect(recent_comments.first.text).to eq('Comment 4')
+        expect(recent_comments.last.text).to eq('Comment 2')
+      end
+  
+      it 'updates the comments counter' do
+        expect {
+          Comment.create(post: post, author: user, text: 'New comment')
+          post.reload
+        }.to change { post.comments_counter }.by(1)
+      end
+  
+      it 'updates the likes counter' do
+        expect {
+          Like.create(post: post, author: user)
+          post.reload
+        }.to change { post.likes_counter }.by(1)
+      end
+    end
 end
