@@ -39,4 +39,15 @@ describe Post, type: :model do
         }.to change { post.likes_counter }.by(1)
       end
     end
+  
+    describe 'callbacks' do
+        let!(:user) { User.create(name: 'Ruby Guy', posts_count: 0) }
+        let!(:post) { Post.new(title: 'Test', text: 'This is a test', comments_counter: 0, likes_counter: 0, author: user) }
+    
+        it 'updates the author posts count after create' do
+          expect {
+            post.save!
+          }.to change { user.reload.posts_count }.by(1)
+        end
+    end
 end
