@@ -50,3 +50,8 @@
 .post-btn-div .posts-btn {
   padding: 0.6rem;
 }
+
+.border-style {
+  border: 2px solid #551a8b;
+  border-radius: 10px;
+}
