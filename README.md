@@ -15,6 +15,7 @@
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🔭 Acknowledgements](#acknowledgements)
@@ -114,6 +115,18 @@ No tests here...
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kifle-haile)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- add model 
+- add controller
+- add view
+- unit tests
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- CONTRIBUTING -->
 

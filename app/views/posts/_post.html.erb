@@ -1,0 +1,12 @@
+<%= link_to(user_post_path(@user, post)) do%>
+  <div class="comment-div border-style">
+    <div class="comment-text">
+      <h3>Post <%= post_counter + 1 %></h3>
+      <p><%= post.text %></p>
+    </div>
+    <div class="counter-div d-flex">
+      <span>Comments: <%= post.comments_counter%></span>
+      <span>Likes: <%= post.likes_counter%></span>
+    </div>
+  </div>
+<% end %>

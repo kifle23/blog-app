@@ -1,0 +1,15 @@
+<div>
+  <%= render @user %>
+</div>
+<div>
+  <% @user.posts.each_with_index do |post, index|%>
+    <div class="comment-bio-div">
+      <%= render partial: "post", locals: { post_counter: index, post: post } %>
+    </div>
+    <div class="comments-section border-style">
+      <% post.recent_comments.each do |comment|%>
+        <p class="d-flex"><span><%= comment.author.name %>:</span><span><%= comment.text %></span></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

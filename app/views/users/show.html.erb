@@ -1,0 +1,19 @@
+<section>
+  <div>
+    <%= render @user %>
+  </div>
+  <div class="bio-div">
+    <div class="bio-details border-style">
+      <h3>Bio</h3>
+      <p>
+        <%= @user.bio%>
+      </p>
+    </div>
+    <div>
+      <%= render partial: "posts/post", collection: @user.posts %>
+    </div>
+  </div>
+  <div class="post-btn-div d-flex">
+    <button class="posts-btn border-style">See All Posts</button>
+  </div>
+</section>
