@@ -24,5 +24,10 @@ describe "UsersControllers", type: :request do
         get "/users/#{user.id}"
         expect(response).to have_http_status(:success)
       end
+
+      it "renders the show template" do
+        get "/users/#{user.id}"
+        expect(response).to render_template(:show)
+      end
     end
 end
