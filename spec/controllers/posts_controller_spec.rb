@@ -16,4 +16,11 @@ describe PostsController, type: :request do
         expect(response.body).to include("Tom")
       end
     end
+
+    describe '#show' do
+      it 'returns a successful response' do
+        get '/users/1/posts/1'
+        expect(response).to have_http_status(:success)
+      end
+    end
 end
