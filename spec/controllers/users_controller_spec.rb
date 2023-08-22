@@ -16,4 +16,13 @@ describe "UsersControllers", type: :request do
         expect(response.body).to include("Tom")
       end
     end
+
+    describe "GET #show" do
+      let(:user) { User.create(name: "Ruby Guy") }
+    
+      it "returns a successful response" do
+        get "/users/#{user.id}"
+        expect(response).to have_http_status(:success)
+      end
+    end
 end
