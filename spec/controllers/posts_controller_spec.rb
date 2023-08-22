@@ -5,5 +5,10 @@ describe PostsController, type: :request do
         get '/users/1/posts' 
         expect(response).to have_http_status(:success)
       end
+
+      it 'renders the index template' do
+        get '/users/1/posts' 
+        expect(response).to render_template(:index)
+      end
     end
 end
