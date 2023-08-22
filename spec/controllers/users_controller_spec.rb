@@ -29,5 +29,10 @@ describe "UsersControllers", type: :request do
         get "/users/#{user.id}"
         expect(response).to render_template(:show)
       end
+
+      it "includes correct placeholder text in the response body" do
+        get "/users/#{user.id}"
+        expect(response.body).to include('Ruby Guy')
+      end
     end
 end
