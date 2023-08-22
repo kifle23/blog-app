@@ -22,5 +22,10 @@ describe PostsController, type: :request do
         get '/users/1/posts/1'
         expect(response).to have_http_status(:success)
       end
+
+      it 'renders the show template' do
+        get '/users/1/posts/1'
+        expect(response).to render_template(:show)
+      end
     end
 end
