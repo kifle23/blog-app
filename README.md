@@ -73,7 +73,16 @@ you have to those tools in your local machine.
 - [ ] ROR
 - [ ] Any Code Editor (VS Code, Brackets, etc)
 
-### Setup
+### Install
+
+Navigate into the directory and install the necessary gems:
+
+<pre>
+cd blog-app
+bundle install
+</pre>
+
+### Usage
 
 Clone the project.
 
