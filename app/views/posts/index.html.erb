@@ -1,7 +1,7 @@
-<div>
+<div class="bio-div">
   <%= render @user %>
 </div>
-<div>
+<div class="bio-div">
   <% @user.posts.each_with_index do |post, index|%>
     <div class="comment-bio-div">
       <%= render partial: "post", locals: { post_counter: index, post: post } %>
@@ -12,4 +12,7 @@
       <% end %>
     </div>
   <% end %>
+</div>
+<div class="post-btn-div d-flex">
+    <button class="posts-btn border-style">Pagination</button>
 </div>
