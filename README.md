@@ -84,6 +84,10 @@ bundle install
 
 ### Usage
 
+Run the application:
+
+### Setup
+
 Clone the project.
 
 ```bash
