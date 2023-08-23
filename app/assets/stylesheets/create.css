@@ -1,9 +1,12 @@
 .form-container {
     max-width: 400px;
-    margin: 2rem;
     padding: 20px;
     background-color: #f2f2f2;
     border-radius: 5px;
+  }
+
+  .form-container-margin {
+    margin: 2rem;
   }
 
   .form-container label {
