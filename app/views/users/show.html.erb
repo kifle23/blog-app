@@ -13,6 +13,7 @@
       <%= render partial: "posts/post", collection: @user.posts %>
     </div>
   </div>
+  <%= render template: 'posts/create', collection: @user.posts %>
   <div class="post-btn-div d-flex">
     <%= button_tag "See All Posts", class: "posts-btn border-style", onclick: "window.location.href='/users/#{@user.id}/posts'" %>
   </div>

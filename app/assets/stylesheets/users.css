@@ -15,7 +15,8 @@
 }
 
 .img-container {
-  width: 25%;
+  width: 10%;
+  height: 120px;
 }
 
 .img-container img {
@@ -25,7 +26,7 @@
 }
 
 .user-details {
-  width: 70%;
+  width: 85%;
   padding: 0.5rem;
   flex-direction: column;
   justify-content: space-between;

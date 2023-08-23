@@ -11,12 +11,16 @@ class PostsController < ApplicationController
     new_post = current_user.posts.new(post_params)
     new_post.comments_counter = 0
     new_post.likes_counter = 0
+    @post = new_post
+
     respond_to do |format|
-      format.html do
-        if new_post.save
+      if new_post.save
+        format.html do
           flash[:success] = 'Post created successfully'
           redirect_to user_posts_url
-        else
+        end
+      else
+        format.html do
           flash.now[:error] = 'Error: Post could not be created'
           render :new, locals: { post: new_post }
         end
