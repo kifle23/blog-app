@@ -22,5 +22,5 @@
       <p class="d-flex"><span><%= comment.author.name %>:</span><span><%= comment.text %></span></p>
     <% end %>
   </div>
-<%= render template: 'comments/create', post_id: @post.id %>
+<%= render template: 'comments/new', post_id: @post.id %>
 </div>

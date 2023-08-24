@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     @post = User.find(params[:user_id]).posts.find(params[:id])
   end
 
+  def new
+    @post = Post.new
+  end
+
   def create
     new_post = current_user.posts.new(post_params)
     new_post.comments_counter = 0
