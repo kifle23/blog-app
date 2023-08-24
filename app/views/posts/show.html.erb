@@ -9,11 +9,18 @@
     </div>
     <div>
       <%= @post.text %>
-    </div>
+      <%= form_with url: user_post_likes_path(@post.author, @post), method: :post, local: true do |form| %>
+        <%= form.button type: :submit, class: 'link-button' do %>
+          <span class="heart-icon">&#x2665;</span>
+        <% end %>
+      <% end %>    
+    </div>   
   </div>
+  
   <div class="comments-section border-style">
     <% @post.recent_comments.each do |comment|%>
       <p class="d-flex"><span><%= comment.author.name %>:</span><span><%= comment.text %></span></p>
     <% end %>
   </div>
+<%= render template: 'comments/new', post_id: @post.id %>
 </div>

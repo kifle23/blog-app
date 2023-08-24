@@ -1,0 +1,14 @@
+<div class="form-container">
+<%= form_with model: @comment, url: user_post_comments_path(post_id: @post.id), method: :post, local: true, scope: :add_comment do |form| %>
+  <div>
+    <%= form.label :text %><br>
+    <%= form.text_area :text, size: "100x6" %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :span, msg, class: name %>
+<% end -%>
+</div>

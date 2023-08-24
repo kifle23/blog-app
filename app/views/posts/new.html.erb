@@ -1,0 +1,19 @@
+<div class="form-container form-container-margin">
+  <%= form_with model: @post, url: user_posts_path(user_id: current_user.id), method: :post, local: true, scope: :add_post do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :text %><br>
+      <%= form.text_area :text, size: "80x6" %>
+    </div>
+
+    <%= form.submit %>
+  <% end %>
+
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :span, msg, class: name %>
+  <% end -%>
+</div>

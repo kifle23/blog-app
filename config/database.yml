@@ -24,7 +24,7 @@ default: &default
 development:
   adapter: postgresql
   encoding: unicode
-  database: blog_app_development
+  database: blog_app_development_1
   pool: 5
   username: learn_rails
   password: password1
@@ -63,7 +63,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: blog_app_test
+  database: blog_app_test_1
   pool: 5
   username: learn_rails
   password: password1
