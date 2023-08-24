@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       else
         format.html do
           flash.now[:error] = 'Error: Post could not be created'
-          render :new, locals: { post: new_post }
+          render :new
         end
       end
     end
