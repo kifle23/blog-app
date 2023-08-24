@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
     def create
       post = Post.find(params[:post_id])
-      p post
       comment = current_user.comments.new(comments_params)
       comment.post = post
       if comment.save
