@@ -54,4 +54,12 @@ end
     visit user_post_path(@user1.id, @post1.id)
     expect(page).to have_content('Ruby Guy')
   end
+
+  it 'can see comment made by the commmentor' do
+    visit user_post_path(@user1.id, @post1.id)
+    expect(page).to have_content('This is comment 1')
+    expect(page).to have_content('This is comment 2')
+    visit user_post_path(@user1.id, @post2.id)
+    expect(page).to have_content('This is comment 3')
+  end
 end
