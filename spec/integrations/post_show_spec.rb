@@ -49,4 +49,9 @@ end
     visit user_post_path(@user1.id, @post1.id)
     expect(page).to have_content('text 1')
   end
+
+  it 'can see the user name of the commentor' do
+    visit user_post_path(@user1.id, @post1.id)
+    expect(page).to have_content('Ruby Guy')
+  end
 end
