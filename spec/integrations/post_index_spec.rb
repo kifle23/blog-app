@@ -63,4 +63,9 @@ describe 'Post Index Page Features', type: :feature, js: true do
     expect(page).to have_content('Likes: 1')
     expect(page).to have_content('Likes: 0')
   end
+
+  it 'can see a section for pagination if there are more posts than fit on the view' do
+    visit user_posts_path(@user1.id)
+    expect(page).to have_button('Pagination')
+  end
 end
