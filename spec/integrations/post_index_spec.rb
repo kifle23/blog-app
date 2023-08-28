@@ -15,7 +15,6 @@ describe 'Post Index Page Features', type: :feature, js: true do
                         author_id: @user1.id)
     Post.create(id: 6, title: 'Post 3', text: 'text 3', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
     Post.create(id: 7, title: 'Post 4', text: 'text 4', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
-
   end
 
   it 'can see the user\'s profile picture' do
@@ -31,5 +30,10 @@ describe 'Post Index Page Features', type: :feature, js: true do
   it 'can see the number of posts the user has written' do
     visit user_posts_path(@user1.id)
     expect(page).to have_content('Number of Posts: 4')
+  end
+
+  it 'can see the post\'s title' do
+    visit user_posts_path(@user1.id)
+    expect(page).to have_content('Post 1')
   end
 end
