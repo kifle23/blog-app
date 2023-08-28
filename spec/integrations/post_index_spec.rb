@@ -36,4 +36,9 @@ describe 'Post Index Page Features', type: :feature, js: true do
     visit user_posts_path(@user1.id)
     expect(page).to have_content('Post 1')
   end
+
+  it 'can see the post\'s body' do
+    visit user_posts_path(@user1.id)
+    expect(page).to have_content('text 4')
+  end
 end
