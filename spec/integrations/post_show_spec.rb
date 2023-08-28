@@ -15,6 +15,10 @@ RSpec.describe 'Post Show Page Features', type: :feature, js: true do
             author_id: @user1.id)
     Post.create(id: 6, title: 'Post 3', text: 'text 3', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
     Post.create(id: 7, title: 'Post 4', text: 'text 4', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
+
+    @user1.comments.create(text: 'This is comment 1', post: @post1)
+    @user1.comments.create(text: 'This is comment 2', post: @post1)
+    @user1.comments.create(text: 'This is comment 3', post: @post2)
 end
 
   it 'can see the post\'s title' do
@@ -25,5 +29,12 @@ end
   it 'can see the who wrote the post' do
     visit user_post_path(@user1.id, @post1.id)
     expect(page).to have_content('Ruby Guy')
+  end
+
+  it 'can see how many comments a post has' do
+    visit user_post_path(@user1.id, @post1.id)
+    expect(page).to have_content('Comments: 2')
+    visit user_post_path(@user1.id, @post2.id)
+    expect(page).to have_content('Comments: 1')
   end
 end
