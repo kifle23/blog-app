@@ -50,4 +50,9 @@ describe 'Post Index Page Features', type: :feature, js: true do
     visit user_posts_path(@user1.id)
     expect(page).to have_content('This is comment 1')
   end
+
+  it 'can see how many comments a post has' do
+    visit user_posts_path(@user1.id)
+    expect(page).to have_content('Comments: 2')
+  end
 end
