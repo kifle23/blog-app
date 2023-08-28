@@ -59,6 +59,7 @@ group :development, :test do
   # The following gems aids with the nuts and bolts
   # of interacting with the browser.
   gem 'webdrivers'
+  gem 'selenium-webdriver'
 end
 
 gem 'rails-controller-testing'
@@ -75,3 +76,5 @@ group :development do
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'selenium-webdriver'

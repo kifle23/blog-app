@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'selenium/webdriver'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -68,4 +69,9 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-Capybara.default_driver = :selenium_chrome
+Capybara.register_driver :selenium do |app|
+  options = Selenium::WebDriver::Chrome::Options.new(binary: 'C:\Program Files\Google\Chrome\Application\chrome.exe')
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :selenium
