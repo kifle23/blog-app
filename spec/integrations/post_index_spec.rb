@@ -8,6 +8,14 @@ describe 'Post Index Page Features', type: :feature, js: true do
       bio: "I am a user1",
       posts_count: 5
     )
+
+    post1 = Post.create(id: 4, title: 'Post 1', text: 'text 1', likes_counter: 0, comments_counter: 0,
+                        author_id: @user1.id)
+    post2 = Post.create(id: 5, title: 'Post 2', text: 'text 2', likes_counter: 0, comments_counter: 0,
+                        author_id: @user1.id)
+    Post.create(id: 6, title: 'Post 3', text: 'text 3', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
+    Post.create(id: 7, title: 'Post 4', text: 'text 4', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
+
   end
 
   it 'can see the user\'s profile picture' do
@@ -18,5 +26,10 @@ describe 'Post Index Page Features', type: :feature, js: true do
   it 'can see the user\'s username' do
     visit user_posts_path(@user1.id)
     expect(page).to have_content('Ruby Guy')
+  end
+
+  it 'can see the number of posts the user has written' do
+    visit user_posts_path(@user1.id)
+    expect(page).to have_content('Number of Posts: 4')
   end
 end
