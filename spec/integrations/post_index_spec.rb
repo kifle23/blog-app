@@ -19,6 +19,8 @@ describe 'Post Index Page Features', type: :feature, js: true do
     @user1.comments.create(text: 'This is comment 1', post: post1)
     @user1.comments.create(text: 'This is comment 2', post: post1)
     @user1.comments.create(text: 'This is comment 3', post: post2)
+
+    @user1.likes.create(post: post1)
   end
 
   it 'can see the user\'s profile picture' do
@@ -54,5 +56,11 @@ describe 'Post Index Page Features', type: :feature, js: true do
   it 'can see how many comments a post has' do
     visit user_posts_path(@user1.id)
     expect(page).to have_content('Comments: 2')
+  end
+
+  it 'can see how many likes a post has' do
+    visit user_posts_path(@user1.id)
+    expect(page).to have_content('Likes: 1')
+    expect(page).to have_content('Likes: 0')
   end
 end
