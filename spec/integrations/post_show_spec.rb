@@ -21,4 +21,9 @@ end
     visit user_post_path(@user1.id, @post1.id)
     expect(page).to have_content('Post 1')
   end
+
+  it 'can see the who wrote the post' do
+    visit user_post_path(@user1.id, @post1.id)
+    expect(page).to have_content('Ruby Guy')
+  end
 end
