@@ -18,7 +18,7 @@
   </div>
   
   <div class="comments-section border-style">
-    <% @post.recent_comments.each do |comment|%>
+    <% @post.recent_comments.includes(:author).each do |comment|%>
       <p class="d-flex"><span><%= comment.author.name %>:</span><span><%= comment.text %></span></p>
     <% end %>
   </div>
