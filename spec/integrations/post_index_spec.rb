@@ -68,4 +68,10 @@ describe 'Post Index Page Features', type: :feature, js: true do
     visit user_posts_path(@user1.id)
     expect(page).to have_button('Pagination')
   end
+
+  it 'When I click on a post, it redirects me to that post\'s show page' do
+    visit user_posts_path(@user1.id)
+    click_link(href: user_post_path(@user1.id, 6))
+    expect(page).to have_current_path(user_post_path(@user1.id, 6))
+  end
 end
