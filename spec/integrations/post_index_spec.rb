@@ -15,6 +15,10 @@ describe 'Post Index Page Features', type: :feature, js: true do
                         author_id: @user1.id)
     Post.create(id: 6, title: 'Post 3', text: 'text 3', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
     Post.create(id: 7, title: 'Post 4', text: 'text 4', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
+
+    @user1.comments.create(text: 'This is comment 1', post: post1)
+    @user1.comments.create(text: 'This is comment 2', post: post1)
+    @user1.comments.create(text: 'This is comment 3', post: post2)
   end
 
   it 'can see the user\'s profile picture' do
@@ -40,5 +44,10 @@ describe 'Post Index Page Features', type: :feature, js: true do
   it 'can see the post\'s body' do
     visit user_posts_path(@user1.id)
     expect(page).to have_content('text 4')
+  end
+
+  it 'can see the first comments of a post' do
+    visit user_posts_path(@user1.id)
+    expect(page).to have_content('This is comment 1')
   end
 end
