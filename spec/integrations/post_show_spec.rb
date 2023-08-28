@@ -44,4 +44,9 @@ end
     visit user_post_path(@user1.id, @post1.id)
     expect(page).to have_content('Likes: 1')
   end
+
+  it 'can see the post\'s body' do
+    visit user_post_path(@user1.id, @post1.id)
+    expect(page).to have_content('text 1')
+  end
 end
