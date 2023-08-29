@@ -9,7 +9,6 @@ describe 'User Show Page Features', type: :feature, js: true do
       posts_count: 5
     )
 
-
     Post.create(id: 4, title: 'Post 1', text: 'text 1', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
     Post.create(id: 5, title: 'Post 2', text: 'text 2', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
     Post.create(id: 6, title: 'Post 3', text: 'text 3', likes_counter: 0, comments_counter: 0, author_id: @user1.id)
