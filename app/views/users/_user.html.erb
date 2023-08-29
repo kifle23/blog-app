@@ -4,8 +4,8 @@
     <img src="<%= user.photo %>" alt="<%= user.name  %>'s Photo" class="profile">
   </div>
   <div class="user-details d-flex border-style">
-    <h1><%= user.name %></h1>
-    <p>Number of Posts: <%= user.posts_count %></p>
+    <h1 class="user-name"><%= user.name %></h1>
+    <p class="number-of-posts">Number of Posts: <%= user.posts_count %></p>
   </div>
 </article>
 <% end %>
