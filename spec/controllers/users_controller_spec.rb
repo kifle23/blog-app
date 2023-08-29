@@ -1,43 +1,47 @@
 require 'rails_helper'
 
-describe 'UsersControllers', type: :request do
+RSpec.describe UsersController, type: :controller do
   describe 'GET #index' do
     it 'returns a successful response' do
       allow(User).to receive(:all).and_return([])
-      get '/users'
+      get :index
       expect(response).to have_http_status(:success)
     end
 
     it 'renders the index template' do
       allow(User).to receive(:all).and_return([])
-      get '/users'
+      get :index
       expect(response).to render_template(:index)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      allow(User).to receive(:all).and_return([User.new(name: 'Tom')])
-      get '/users'
-      expect(response.body).to include('Tom')
+    it 'assigns @users with all users' do
+      users = [User.new(name: 'Tom')]
+      allow(User).to receive(:all).and_return(users)
+      get :index
+      expect(assigns(:users)).to eq(users)
     end
   end
 
   describe 'GET #show' do
     it 'returns a successful response' do
-      allow(User).to receive(:find).and_return(User.new(name: 'Ruby Guy'))
-      get '/users/1'
+      user = User.new(name: 'Ruby Guy')
+      allow(User).to receive_message_chain(:includes, :find).and_return(user)
+      get :show, params: { id: 1 }
       expect(response).to have_http_status(:success)
     end
 
     it 'renders the show template' do
-      allow(User).to receive(:find).and_return(User.new(name: 'Ruby Guy'))
-      get '/users/1'
+      user = User.new(name: 'Ruby Guy')
+      allow(User).to receive_message_chain(:includes, :find).and_return(user)
+      get :show, params: { id: 1 }
       expect(response).to render_template(:show)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      allow(User).to receive(:find).and_return(User.new(name: 'Ruby Guy'))
-      get '/users/1'
-      expect(response.body).to include('Ruby Guy')
+    it 'assigns @user with the correct user' do
+      user = User.new(name: 'Ruby Guy')
+      allow(User).to receive_message_chain(:includes, :find).and_return(user)
+      get :show, params: { id: 1 }
+      expect(assigns(:user)).to eq(user)
     end
   end
 end

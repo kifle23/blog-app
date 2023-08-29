@@ -53,6 +53,13 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 5.0'
+  # Capybara, the library that allows us to interact with the browser using Ruby
+  gem 'capybara'
+
+  # The following gems aids with the nuts and bolts
+  # of interacting with the browser.
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem 'rails-controller-testing'

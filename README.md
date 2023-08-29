@@ -110,7 +110,7 @@ In the project directory, run/ Excute each query in the following order:
 ### Run tests
 
 ```test
-No tests here...
+  rspec ./spec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -119,7 +119,11 @@ No tests here...
 
 ## 👥 Authors <a name="authors"></a>
 
-### Author:
+👤 **Abdul Ali Noori**
+
+- GitHub: [@ab-noori](https://github.com/ab-noori)
+- Twitter: [@AbdulAliNoori4](https://twitter.com/AbdulAliNoori4)
+- LinkedIn: [abdulali-noori](https://www.linkedin.com/in/abdulali-noori)
 
 👤 **Kifle Haile**
 
