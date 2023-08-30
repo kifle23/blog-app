@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_161346) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_190001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,10 +53,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_161346) do
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.boolean "confirmed", default: false
+    t.boolean "confirmed", default: true
     t.string "confirmation_token"
     t.datetime "confirmation_sent_at"
-    t.datetime "confirmed_at"
+    t.datetime "confirmed_at", default: -> { "CURRENT_TIMESTAMP" }
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string "unconfirmed_email"
