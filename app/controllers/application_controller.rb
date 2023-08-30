@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
-  
+  before_action :authenticate_user!
+  helper_method :current_user
+
   private
 
-  def set_current_user
-    @current_user = current_user
+  def current_user
+    super
   end
 end
