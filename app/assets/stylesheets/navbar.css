@@ -1,0 +1,21 @@
+.navbar {
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    margin-right: 20px;
+  }
+  
+  .navbar-item {
+    margin-right: 10px;
+  }
+  
+  .navbar-link {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .navbar-link:hover {
+    text-decoration: underline;
+  }
