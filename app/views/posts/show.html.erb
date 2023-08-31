@@ -1,14 +1,9 @@
 <div class="post-details-div">
   <div class="single-post-details border-style">
     <div class="title-details d-flex">
-      <button>
-        <% if can? :destroy, @post %>
-        <%= link_to 'Delete Post', 
-          user_post_path(current_user.id), 
-          method: :delete, 
-          data: {confirm: 'Are you sure you want to remove this post'} %>
-        <% end %>
-      </button>
+      <% if can? :destroy, @post %>
+        <%= button_to "Delete this post", user_post_path(@post.author, @post), method: :delete %>
+      <%end%>
       <p><%= @post.title %> by <%= @post.author.name%></p>
       <div>
         <span>Comments: <%= @post.comments_counter%></span>
