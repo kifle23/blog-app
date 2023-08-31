@@ -92,3 +92,6 @@
   cursor: pointer;
 }
 
+.delete-button:hover {
+  background-color: #c00;
+}
