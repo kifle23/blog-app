@@ -1,6 +1,9 @@
 <div class="post-details-div">
   <div class="single-post-details border-style">
     <div class="title-details d-flex">
+      <% if can? :destroy, @post %>
+        <%= button_to "Delete this post", user_post_path(@post.author, @post), method: :delete, class: "delete-button" %>
+      <%end%>
       <p><%= @post.title %> by <%= @post.author.name%></p>
       <div>
         <span>Comments: <%= @post.comments_counter%></span>
@@ -22,6 +25,11 @@
       <p class="d-flex">
         <span><%= comment.author.name %>:</span>
         <span><%= comment.text %></span>
+        <span>
+          <% if can? :delete, comment %>
+            <%= button_to "Delete this comment", user_post_comment_path(comment.author, comment.post, comment), method: :delete, class: "delete-button" %>
+          <%end%>
+        </span>
       </p>
     <% end %>
   </div>

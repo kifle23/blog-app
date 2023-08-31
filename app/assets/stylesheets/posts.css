@@ -81,3 +81,17 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+.delete-button {
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c00;
+}

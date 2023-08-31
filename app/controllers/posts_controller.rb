@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = User.includes(:posts).find(params[:user_id])
   end
@@ -30,6 +32,15 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    Comment.where(post_id: @post.id).destroy_all
+    Like.where(post_id: @post.id).destroy_all
+    @post.destroy
+    flash[:success] = 'You deleted this post'
+    redirect_to user_path(@post.author), notice: 'Post Deleted!'
   end
 
   private
