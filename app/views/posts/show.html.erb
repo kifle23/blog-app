@@ -19,7 +19,10 @@
   
   <div class="comments-section border-style">
     <% @post.recent_comments.each do |comment|%>
-      <p class="d-flex"><span><%= comment.author.name %>:</span><span><%= comment.text %></span></p>
+      <p class="d-flex">
+        <span><%= comment.author.name %>:</span>
+        <span><%= comment.text %></span>
+      </p>
     <% end %>
   </div>
 <%= render template: 'comments/new', post_id: @post.id %>

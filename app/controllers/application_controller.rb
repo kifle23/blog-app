@@ -1,14 +1,12 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
+  before_action :authenticate_user!, :update_allowed_parameters, if: :devise_controller?
   helper_method :current_user
 
-  def current_user
-    @current_user ||= User.first
-  end
+  protected
 
-  private
-
-  def set_current_user
-    @current_user = current_user
+  def update_allowed_parameters
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
+      u.permit(:name, :email, :password, :password_confirmation)
+    end
   end
 end
