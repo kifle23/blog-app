@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, :update_allowed_parameters, if: :devise_controller?
-  helper_method :current_user
-
+  
   protected
 
   def update_allowed_parameters
