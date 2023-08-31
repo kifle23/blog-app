@@ -25,6 +25,9 @@
       <p class="d-flex">
         <span><%= comment.author.name %>:</span>
         <span><%= comment.text %></span>
+        <% if can? :delete, comment %>
+          <%= button_to "Delete this comment", user_post_comment_path(comment.author, comment.post, comment), method: :delete %>
+        <%end%>
       </p>
     <% end %>
   </div>
