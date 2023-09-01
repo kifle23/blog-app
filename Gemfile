@@ -82,4 +82,3 @@ gem 'devise'
 gem 'cancancan'
 
 gem 'rswag'
-
