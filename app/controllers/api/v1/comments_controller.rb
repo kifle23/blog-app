@@ -2,6 +2,8 @@ module Api
   module V1
     class Api::V1::CommentsController < ApplicationController
       include RecordNotFoundHandler
+      before_action :authenticate_user!
+      
       def index
         user = User.find(params[:user_id])
         post = user.posts.find(params[:post_id])
