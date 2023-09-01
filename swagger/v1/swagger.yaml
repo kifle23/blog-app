@@ -1,0 +1,85 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/posts/{post_id}/comments":
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    - name: post_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Retrieves comments for a post
+      tags:
+      - Comments
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a list of comments
+        '404':
+          description: User or post not found
+    post:
+      summary: Creates a new comment
+      tags:
+      - Comments
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Comment created successfully
+        '422':
+          description: Invalid comment data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+              - text
+  "/api/v1/users/{user_id}/posts":
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Retrieves a list of posts for a user
+      tags:
+      - Posts
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a list of posts
+        '404':
+          description: User not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
